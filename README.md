@@ -20,6 +20,7 @@ Produits, prix et effets sont inventés. Aujourd'hui en France, un médicament s
 - `affiches/export/affiche-N.png` : version fixe, pour l'impression ou un diaporama.
 - `affiches/export/affiche-N.mp4` : version vidéo animée de 7 s, pour les réseaux sociaux ou l'oral.
 
+- `affiches/reel.html` : vidéo Reel verticale (1080×1920, 29 s), exportée en `affiches/export/reel.mp4` (+ `reel-cover.png`).
 - `affiches/story.html` : story verticale façon Snap (1080×1920), exportée en `affiches/export/story.png` et `story.mp4` (10 s).
 
 1. Lancement de la marque · 2. IZAM Derma 89 € · 3. IZAM Meta 149 €/mois · 4. IZAM Articula 119 € · 5. IZAM Care (kit 24 €, téléconseil gratuit) · 6. Offre de lancement −15 % · 7. Livraison et garanties · 8. Comment commander · 9. Analyse juridique : marché gris vs IZAMPEPTIDE

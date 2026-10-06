@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reel IZAMPEPTIDE</title>
+<style>
+:root{--teal:#2de1c2;--violet:#8b5cf6;--pink:#f472b6;--yellow:#fde047;--gold:#fbbf24;--blue:#60a5fa;--night:#070b1a;--soft:#b9c2e0}
+*{box-sizing:border-box;margin:0}
+body{background:#111;display:grid;place-items:center;min-height:100vh;font-family:Inter,system-ui,sans-serif}
+.wrap{width:360px;height:640px;overflow:hidden;border-radius:22px;box-shadow:0 20px 60px #0009}
+.reel{--c1:#8b5cf6;--c2:#2de1c2;width:1080px;height:1920px;transform:scale(.3333);transform-origin:0 0;position:relative;overflow:hidden;color:#fff;background:var(--night)}
+body.solo{background:var(--night);display:block}
+body.solo .wrap{width:1080px;height:1920px;border-radius:0;box-shadow:none}
+body.solo .reel{transform:none}
+
+/* fond animé commun */
+.bg{position:absolute;inset:-20%;background:radial-gradient(circle at 25% 25%,color-mix(in srgb,var(--c1) 55%,transparent),transparent 45%),radial-gradient(circle at 75% 75%,color-mix(in srgb,var(--c2) 50%,transparent),transparent 45%);animation:drift 8s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(5%,-4%) rotate(8deg)}}
+.grid{position:absolute;inset:0;background-image:linear-gradient(#ffffff0a 1px,transparent 1px),linear-gradient(90deg,#ffffff0a 1px,transparent 1px);background-size:60px 60px}
+
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 80px;opacity:0;pointer-events:none}
+.scene.on{opacity:1}
+.scene.out{animation:leave .45s ease forwards}
+@keyframes leave{to{opacity:0;transform:scale(1.08);filter:blur(8px)}}
+.scene.on .a{animation:up .7s cubic-bezier(.2,.9,.2,1) both}
+.scene.on .p{animation:pop .7s cubic-bezier(.3,1.6,.5,1) both}
+.d1{animation-delay:.15s!important}.d2{animation-delay:.4s!important}.d3{animation-delay:.65s!important}.d4{animation-delay:.9s!important}.d5{animation-delay:1.15s!important}
+@keyframes up{from{opacity:0;transform:translateY(70px)}}
+@keyframes pop{from{opacity:0;transform:scale(0) rotate(-6deg)}}
+
+.brand{font-weight:900;font-size:150px;letter-spacing:-.02em;line-height:1;background:linear-gradient(90deg,var(--teal),#fff,var(--pink),var(--teal));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite;filter:drop-shadow(0 8px 30px #2de1c288)}
+.scene.on .brand{animation:pop .8s cubic-bezier(.3,1.6,.5,1) both,shine 4s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+.kick{font-size:40px;letter-spacing:.3em;text-transform:uppercase;font-weight:700;color:var(--teal);margin-bottom:30px}
+.big{font-size:120px;font-weight:900;line-height:1.02;letter-spacing:-.02em}
+.big span{background:linear-gradient(90deg,var(--c1),var(--c2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:46px;color:var(--soft);margin-top:34px;line-height:1.3}
+.tag{display:inline-block;background:var(--yellow);color:#111;font-weight:900;font-size:64px;padding:10px 34px;border-radius:20px;transform:rotate(-2deg);margin-top:40px}
+
+/* chaîne */
+.chain{width:1080px;height:260px;margin:0 -80px 40px}
+.chain circle{animation:pulse 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.chain line{stroke:#ffffff45;stroke-width:6;stroke-dasharray:220;stroke-dashoffset:220}
+.scene.on .chain line{animation:draw 1.2s .2s ease forwards}
+@keyframes pulse{50%{transform:scale(1.15)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* flacon */
+.vial{position:relative;width:300px;height:520px;margin-top:60px;animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-24px) rotate(3deg)}}
+.vial .vcap{position:absolute;left:70px;width:160px;height:80px;border-radius:16px;background:linear-gradient(90deg,#9aa3b5,#e8ecf3,#9aa3b5)}
+.vial .neck{position:absolute;top:76px;left:95px;width:110px;height:50px;background:#ffffff30;border:4px solid #ffffff70;border-bottom:0}
+.vial .body{position:absolute;top:120px;left:20px;width:260px;height:400px;border-radius:40px;background:#ffffff1c;border:4px solid #ffffff80;overflow:hidden}
+.vial .liq{position:absolute;bottom:0;left:0;right:0;height:58%;background:linear-gradient(180deg,#2de1c2cc,#8b5cf6cc);animation:wave 2.5s ease-in-out infinite alternate}
+@keyframes wave{to{height:64%}}
+.vial .label{position:absolute;top:70px;left:24px;right:24px;background:#fff;color:#14204a;border-radius:16px;padding:18px 10px;font-weight:900;font-size:32px;z-index:2}
+.vial .label small{display:block;font-size:20px;font-weight:600;color:#5d6480}
+.bub{position:absolute;bottom:20px;width:18px;height:18px;border-radius:50%;background:#ffffffaa;animation:rise 2.6s linear infinite}
+@keyframes rise{to{transform:translateY(-220px);opacity:0}}
+
+/* listes */
+.list{display:grid;gap:26px;margin-top:60px;width:100%;text-align:left}
+.list div{font-size:48px;font-weight:800;background:#ffffff12;border:2px solid #ffffff30;border-radius:30px;padding:34px 40px;display:flex;gap:26px;align-items:center}
+.list div i{font-style:normal;font-size:64px}
+
+/* produits */
+.prod{width:100%;border-radius:44px;padding:60px 50px;background:#ffffff10;border:3px solid color-mix(in srgb,var(--pc) 60%,transparent);box-shadow:0 0 80px color-mix(in srgb,var(--pc) 35%,transparent);margin-top:50px}
+.prod .ic{font-size:120px}
+.prod h3{font-size:110px;font-weight:900;margin-top:10px}
+.prod h3 span{color:var(--pc)}
+.prod p{font-size:42px;color:var(--soft);margin-top:20px;line-height:1.3}
+.price{display:inline-block;margin-top:40px;background:var(--pc);color:#111;border-radius:30px;padding:16px 46px;font-size:100px;font-weight:900}
+.price small{font-size:36px;font-weight:700}
+
+.url{margin-top:60px;background:#fff;color:#111;font-weight:900;font-size:56px;padding:26px 60px;border-radius:99px}
+.foot{position:absolute;bottom:50px;left:0;right:0;text-align:center;font-size:26px;color:#ffffffaa;z-index:5}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="reel" id="reel">
+  <div class="bg" id="bg"></div><div class="grid"></div>
+
+  <!-- 1. logo -->
+  <section class="scene" data-t="0" data-c="#8b5cf6,#2de1c2">
+    <svg class="chain a" id="chain" viewBox="0 0 1080 260"></svg>
+    <div class="brand">IZAMPEPTIDE</div>
+    <p class="lead a d3">Les peptides de demain.</p>
+  </section>
+
+  <!-- 2. qualité labo -->
+  <section class="scene" data-t="3" data-c="#8b5cf6,#f472b6">
+    <div class="tag p">La qualité labo 🔬</div>
+    <div class="vial a d2"><div class="vcap"></div><div class="neck"></div>
+      <div class="body"><div class="label">IZAM<small>Qualité contrôlée</small></div><div class="liq"></div>
+        <i class="bub" style="left:60px"></i><i class="bub" style="left:130px;animation-delay:.9s"></i><i class="bub" style="left:200px;animation-delay:1.7s"></i></div></div>
+  </section>
+
+  <!-- 3. arguments -->
+  <section class="scene" data-t="6.5" data-c="#2de1c2,#60a5fa">
+    <div class="kick a">Zéro compromis</div>
+    <div class="big a d1">Du labo<br><span>à ta porte.</span></div>
+    <div class="list">
+      <div class="a d2"><i>🔬</i>Fabriqué selon les standards pharmaceutiques</div>
+      <div class="a d3"><i>🧪</i>Chaque lot analysé avant de quitter le labo</div>
+      <div class="a d4"><i>📦</i>Traçable de la fabrication jusqu'à ta porte</div>
+    </div>
+  </section>
+
+  <!-- 4-6. produits -->
+  <section class="scene" data-t="10.5" data-c="#5eead4,#f472b6" style="--pc:#5eead4">
+    <div class="kick a">La gamme</div>
+    <div class="prod p d1"><div class="ic">🧴</div><h3>IZAM <span>Derma</span></h3><p>Pensé pour la réparation de la peau</p><div class="price">89 €<small> / boîte</small></div></div>
+  </section>
+  <section class="scene" data-t="13" data-c="#fbbf24,#fb7185" style="--pc:#fbbf24">
+    <div class="kick a" style="color:#fbbf24">La gamme</div>
+    <div class="prod p d1"><div class="ic">⚖️</div><h3>IZAM <span>Meta</span></h3><p>Pensé pour le métabolisme</p><div class="price">149 €<small> / mois</small></div></div>
+  </section>
+  <section class="scene" data-t="15.5" data-c="#60a5fa,#2de1c2" style="--pc:#60a5fa">
+    <div class="kick a" style="color:#60a5fa">La gamme</div>
+    <div class="prod p d1"><div class="ic">🦴</div><h3>IZAM <span>Articula</span></h3><p>Pensé pour le confort des articulations</p><div class="price">119 €<small> / boîte</small></div></div>
+  </section>
+
+  <!-- 7. suivi -->
+  <section class="scene" data-t="18" data-c="#a78bfa,#34d399">
+    <div class="tag p" style="background:#34d399">Suivi client perso 🤝</div>
+    <div class="big a d1" style="margin-top:50px;font-size:100px">Je t'accompagne<br><span>de A à Z.</span></div>
+    <p class="lead a d2">Commande, livraison, SAV : 7j/7.<br>Une question ? Je te réponds 💬</p>
+  </section>
+
+  <!-- 8. fin -->
+  <section class="scene" data-t="21.5" data-c="#8b5cf6,#2de1c2">
+    <div class="brand">IZAMPEPTIDE</div>
+    <div class="tag p d2">La qualité labo 🔬</div>
+    <div class="url a d4">izampeptide.eu</div>
+  </section>
+
+  <div class="foot">Marque fictive · projet étudiant · médicaments soumis à prescription</div>
+</div></div>
+
+<script>
+// chaîne d'acides aminés
+const pts = Array.from({ length: 9 }, (_, i) => ({ x: 70 + i * 117.5, y: 130 + Math.sin(i * 1.1) * 70, r: 24 + (i * 7 % 5) * 6 }));
+document.getElementById("chain").innerHTML =
+  pts.slice(1).map((p, i) => `<line x1="${pts[i].x}" y1="${pts[i].y}" x2="${p.x}" y2="${p.y}"/>`).join("") +
+  pts.map((p, i) => `<circle cx="${p.x}" cy="${p.y}" r="${p.r}" fill="${i % 2 ? "#8b5cf6" : "#2de1c2"}" style="animation-delay:${-i * .25}s;filter:drop-shadow(0 0 14px ${i % 2 ? "#8b5cf6" : "#2de1c2"})"/>`).join("");
+
+// timeline des scènes (secondes) — durée totale 25 s
+const scenes = [...document.querySelectorAll(".scene")], reel = document.getElementById("reel"), END = 25;
+if (new URLSearchParams(location.search).has("solo")) document.body.classList.add("solo");
+function play() {
+  scenes.forEach((s, i) => {
+    const t = +s.dataset.t * 1000, next = scenes[i + 1] ? +scenes[i + 1].dataset.t * 1000 : null;
+    setTimeout(() => {
+      s.classList.remove("out"); s.classList.add("on");
+      const [c1, c2] = s.dataset.c.split(",");
+      reel.style.setProperty("--c1", c1); reel.style.setProperty("--c2", c2);
+    }, t);
+    if (next !== null) {
+      setTimeout(() => s.classList.add("out"), next - 450);
+      setTimeout(() => s.classList.remove("on", "out"), next);
+    }
+  });
+  if (!document.body.classList.contains("solo")) setTimeout(() => { scenes.forEach(s => s.classList.remove("on", "out")); play(); }, END * 1000);
+}
+play();
+</script>
+</body>
+</html>
