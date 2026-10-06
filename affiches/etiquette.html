@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Étiquetage IZAMPEPTIDE</title>
+<style>
+:root{--teal:#2de1c2;--violet:#8b5cf6;--pink:#f472b6;--yellow:#fde047;--night:#070b1a;--soft:#b9c2e0;--navy:#14204a}
+*{box-sizing:border-box;margin:0}
+body{background:#111;display:grid;place-items:center;min-height:100vh;font-family:Inter,system-ui,sans-serif}
+.wrap{width:360px;height:640px;overflow:hidden;border-radius:22px;box-shadow:0 20px 60px #0009}
+.po{width:1080px;height:1920px;transform:scale(.3333);transform-origin:0 0;position:relative;overflow:hidden;color:#fff;
+  background:radial-gradient(circle at 20% 15%,#8b5cf677,transparent 45%),radial-gradient(circle at 85% 85%,#2de1c277,transparent 45%),linear-gradient(170deg,#0d0b26,#04131c)}
+body.solo{background:var(--night);display:block}
+body.solo .wrap{width:1080px;height:1920px;border-radius:0;box-shadow:none}
+body.solo .po{transform:none}
+.po::after{content:"";position:absolute;inset:0;background-image:linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.po>*{position:absolute}
+
+.top{top:90px;left:70px;right:70px;text-align:center}
+.top .k{font-size:30px;letter-spacing:.28em;text-transform:uppercase;font-weight:700;color:var(--teal);animation:up .7s both}
+.top h1{font-size:96px;font-weight:900;line-height:1.02;margin-top:18px;letter-spacing:-.02em;animation:up .8s .15s both}
+.top h1 span{background:linear-gradient(90deg,var(--teal),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* fiole */
+.vial{left:300px;top:430px;width:480px;height:900px;transform:scale(.8);animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:scale(.8) translateY(-18px)}}
+.seal{position:absolute;left:105px;top:0;width:270px;height:120px;border-radius:22px;background:linear-gradient(90deg,#8a93a8,#eef1f7 45%,#8a93a8);box-shadow:inset 0 -10px 0 #0002}
+.seal::after{content:"";position:absolute;left:-6px;right:-6px;bottom:-14px;height:30px;border-radius:8px;background:linear-gradient(90deg,var(--teal),var(--violet));}
+.neck{position:absolute;left:150px;top:130px;width:180px;height:80px;background:#ffffff26;border:5px solid #ffffff80;border-top:0;border-bottom:0}
+.glass{position:absolute;left:20px;top:200px;width:440px;height:700px;border-radius:60px;background:linear-gradient(90deg,#ffffff2a,#ffffff10 40%,#ffffff22);border:5px solid #ffffff90;overflow:hidden;box-shadow:0 30px 80px #0008}
+.glass::before{content:"";position:absolute;left:28px;top:30px;width:26px;height:620px;border-radius:20px;background:#ffffff50}
+.liq{position:absolute;left:0;right:0;bottom:0;height:24%;background:linear-gradient(180deg,#2de1c2aa,#8b5cf6cc)}
+
+.label{position:absolute;left:40px;right:40px;top:110px;height:440px;border-radius:22px;background:#fbfbff;color:var(--navy);padding:26px 30px;z-index:2;overflow:hidden;box-shadow:0 8px 30px #0005}
+.label::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,#ffffffcc 50%,transparent 65%);transform:translateX(-120%);animation:shimmer 3.5s 1s ease-in-out infinite}
+@keyframes shimmer{60%,100%{transform:translateX(120%)}}
+.label .bar{height:12px;border-radius:6px;background:linear-gradient(90deg,var(--teal),var(--violet),var(--pink));margin:-26px -30px 18px}
+.label .brand{font-weight:900;font-size:36px;letter-spacing:.04em;margin-top:22px}
+.label .brand b{color:#0f9f88}
+.label .name{font-size:30px;font-weight:800;margin-top:10px}
+.label .ph{font-size:20px;color:#5d6480;margin-top:6px;line-height:1.35}
+.label .row{display:flex;justify-content:space-between;align-items:flex-end;margin-top:18px}
+.label .meta{font-size:19px;line-height:1.55;color:#2b3560;font-weight:600}
+.dm{width:96px;height:96px;display:grid;grid-template-columns:repeat(8,1fr);gap:1px;padding:4px;border:2px solid var(--navy)}
+.dm i{background:var(--navy)}
+.label .warn{font-size:16px;color:#5d6480;margin-top:12px;border-top:1px solid #dde1ee;padding-top:10px}
+.label .fict{position:absolute;right:-56px;top:22px;transform:rotate(35deg);background:#f87171;color:#fff;font-size:14px;font-weight:800;padding:4px 50px}
+
+/* annotations */
+.call{display:flex;align-items:center;gap:18px;animation:pop .55s cubic-bezier(.3,1.6,.5,1) both}
+.call b{flex:none;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:30px;font-weight:900;color:#111;background:var(--yellow)}
+.call div{background:#1b1e3d;border:2px solid #ffffff33;border-radius:22px;padding:14px 20px;font-size:25px;font-weight:700;line-height:1.25;width:230px}
+.call small{display:block;font-weight:500;color:var(--soft);font-size:19px;margin-top:4px}
+.call.r{flex-direction:row-reverse}
+.c1{left:24px;top:470px;animation-delay:.9s}
+.c2{left:24px;top:690px;animation-delay:1.2s}
+.c3{left:24px;top:910px;animation-delay:1.5s}
+.c4{right:24px;top:560px;animation-delay:1.8s}
+.c5{right:24px;top:800px;animation-delay:2.1s}
+.c6{right:24px;top:1040px;animation-delay:2.4s}
+
+.bottom{left:70px;right:70px;top:1400px;text-align:center}
+.bottom p{font-size:36px;font-weight:800;line-height:1.3;animation:up .7s 2.8s both}
+.bottom p span{color:var(--teal)}
+.src{left:70px;right:70px;bottom:160px;font-size:21px;color:var(--soft);text-align:center;line-height:1.5;animation:up .7s 3.1s both}
+.foot{left:0;right:0;bottom:50px;text-align:center;font-size:24px;color:#ffffffaa}
+@keyframes up{from{opacity:0;transform:translateY(50px)}}
+@keyframes pop{from{opacity:0;transform:scale(.3)}}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="po">
+  <div class="top">
+    <div class="k">Projet marketing · Étiquetage</div>
+    <h1>Le packaging<br><span>IZAMPEPTIDE</span></h1>
+  </div>
+
+  <div class="vial">
+    <div class="seal"></div><div class="neck"></div>
+    <div class="glass">
+      <div class="label">
+        <div class="bar"></div>
+        <div class="fict">FICTIF</div>
+        <div class="brand">IZAM<b>PEPTIDE</b></div>
+        <div class="name">IZAM Meta</div>
+        <div class="ph">[Substance active] · [Dosage]<br>[Forme pharmaceutique] · [Voie d'administration]</div>
+        <div class="row">
+          <div class="meta">Lot : XXXXXX<br>EXP : MM/AAAA<br>[Conservation]</div>
+          <div class="dm" id="dm"></div>
+        </div>
+        <div class="warn">Tenir hors de la vue et de la portée des enfants.</div>
+      </div>
+      <div class="liq"></div>
+    </div>
+  </div>
+
+  <div class="call c1"><b>1</b><div>Marque + nom<small>Identité IZAMPEPTIDE</small></div></div>
+  <div class="call c2"><b>2</b><div>Substance + dosage<small>Obligatoire</small></div></div>
+  <div class="call c3"><b>3</b><div>N° de lot<small>Traçabilité</small></div></div>
+  <div class="call r c4"><b>4</b><div>Bouchon scellé<small>Anti-effraction</small></div></div>
+  <div class="call r c5"><b>5</b><div>Code 2D unique<small>Authenticité</small></div></div>
+  <div class="call r c6"><b>6</b><div>Péremption + conservation<small>Mois/année</small></div></div>
+
+  <div class="bottom"><p>Un étiquetage clair, c'est la <span>qualité labo</span> qu'on voit avant même d'ouvrir le colis.</p></div>
+  <div class="src">Mentions inspirées de la directive 2001/83/CE (art. 54)<br>et du règlement délégué (UE) 2016/161 (code unique + anti-effraction).</div>
+  <div class="foot">Marque fictive · projet étudiant · aucun produit réel</div>
+</div></div>
+<script>
+// faux code 2D décoratif (motif fixe, ne contient aucune donnée)
+const pat = "1011010111001011100101101010011101101001110010111011010010101101";
+document.getElementById("dm").innerHTML = [...pat].map(c => c === "1" ? "<i></i>" : "<span></span>").join("");
+if (new URLSearchParams(location.search).has("solo")) document.body.classList.add("solo");
+</script>
+</body>
+</html>

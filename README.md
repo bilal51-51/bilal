@@ -20,6 +20,7 @@ Produits, prix et effets sont inventés. Aujourd'hui en France, un médicament s
 - `affiches/export/affiche-N.png` : version fixe, pour l'impression ou un diaporama.
 - `affiches/export/affiche-N.mp4` : version vidéo animée de 7 s, pour les réseaux sociaux ou l'oral.
 
+- `affiches/etiquette.html` : affiche format téléphone sur l'étiquetage de la fiole IZAMPEPTIDE, exportée en `etiquette.png` et `etiquette.mp4`.
 - `affiches/reel.html` : vidéo Reel verticale (1080×1920, 29 s), exportée en `affiches/export/reel.mp4` (+ `reel-cover.png`).
 - `affiches/story.html` : story verticale façon Snap (1080×1920), exportée en `affiches/export/story.png` et `story.mp4` (10 s).
 
