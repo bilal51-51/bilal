@@ -27,7 +27,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--night);fon
 .head p{margin-top:24px;font-size:38px;font-weight:600;color:var(--soft);animation:up .9s .35s both}
 .head p em{font-style:normal;color:#fff}
 
-.grid{top:560px;left:56px;right:56px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid{top:530px;left:56px;right:56px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .card{position:relative;height:282px;border-radius:34px;padding:26px 28px 24px;background:linear-gradient(150deg,#ffffff17,#ffffff07);border:1.5px solid #ffffff2c;box-shadow:inset 0 1px 0 #ffffff22,0 20px 40px #0005;overflow:hidden;animation:card .7s cubic-bezier(.2,.9,.2,1) both}
 .card::before{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,var(--c) 0,transparent 70%);opacity:.35}
 .card:nth-child(1){--c:var(--sky);animation-delay:.8s}
@@ -39,14 +39,24 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--night);fon
 .ic{font-size:58px;line-height:1;display:inline-block;animation:bob 3s ease-in-out infinite}
 .card:nth-child(even) .ic{animation-delay:-1.5s}
 @keyframes bob{50%{transform:translateY(-8px) rotate(-4deg)}}
-.tag{display:inline-block;margin-left:10px;vertical-align:top;font-size:20px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:99px;background:var(--c);color:#111}
+.tag{display:inline-block;margin-left:10px;vertical-align:top;font-size:22px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:6px 16px;border-radius:99px;background:var(--c);color:#111}
 .card h3{font-size:36px;font-weight:900;letter-spacing:-.02em;line-height:1.05;margin-top:14px}
 .card p{font-size:25px;line-height:1.3;color:var(--soft);margin-top:10px}
 .card p b{color:#fff;font-weight:700}
 
-.punch{top:1516px;left:56px;right:56px;text-align:center;padding:30px 20px;border-radius:30px;background:linear-gradient(90deg,#2de1c222,#8b5cf622,#f472b622);border:1.5px solid #ffffff30;animation:up .8s 2.1s both}
+.card.hero{grid-column:1/-1;height:220px;display:flex;align-items:center;gap:34px;padding:26px 34px}
+.card.hero .ic{font-size:120px}
+.card.hero .tag{margin-left:0}
+.card.hero h3{font-size:54px;margin-top:10px}
+.card.hero p{font-size:27px}
+.card.wide{grid-column:1/-1;height:168px;display:flex;align-items:center;gap:30px;padding:22px 34px}
+.card.wide .ic{font-size:76px}
+.card.wide .tag{margin-left:0}
+.card.wide h3{margin-top:8px}
+.card.wide p{margin-top:6px}
+.punch{top:1566px;left:56px;right:56px;text-align:center;padding:30px 20px;border-radius:30px;background:linear-gradient(90deg,#2de1c218,#8b5cf618,#f472b618);border:1.5px solid #ffffff30;animation:up .8s 2.1s both}
 .punch b{display:block;font-size:52px;font-weight:900;letter-spacing:-.02em}
-.punch b span{background:linear-gradient(90deg,var(--teal),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.punch b span{background:linear-gradient(90deg,var(--teal),#c4b5fd 50%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
 .punch small{display:block;margin-top:8px;font-size:28px;color:var(--soft);font-weight:600}
 
 .src{bottom:100px;left:60px;right:60px;text-align:center;font-size:22px;color:#ffffffa8;font-family:Inter,sans-serif;animation:up .7s 2.4s both}
@@ -60,7 +70,7 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--night);fon
 </head>
 <body>
 <div class="po">
-  <div class="new">✦ Le conseil IZAMPEPTIDE</div>
+  <div class="new">✦ Conseil bien-être</div>
   <div class="brand"><i></i><span>IZAM<b>PEPTIDE</b></span></div>
 
   <div class="head">
@@ -69,12 +79,12 @@ html,body{width:1080px;height:1920px;overflow:hidden;background:var(--night);fon
   </div>
 
   <div class="grid">
-    <div class="card"><span class="ic">💧</span><span class="tag">N°1</span><h3>L'eau, ta boisson</h3><p>La <b>seule boisson recommandée.</b> Thé, café modéré et infusions sans sucre comptent aussi.</p></div>
-    <div class="card"><span class="ic">🥤</span><span class="tag">Max 1/jour</span><h3>Sodas &amp; jus,<br>on freine</h3><p>Même light&nbsp;: <b>le moins possible,</b> jamais plus d'un verre par jour.</p></div>
-    <div class="card"><span class="ic">🍔</span><span class="tag">Stop</span><h3>L'ultra-transformé,<br>on évite</h3><p>Souvent trop gras, sucré, salé, avec des additifs (<b>«&nbsp;E&nbsp;»&nbsp;+&nbsp;3&nbsp;chiffres</b>).</p></div>
-    <div class="card"><span class="ic">🥕</span><span class="tag">Fait maison</span><h3>Des produits bruts</h3><p>Frais, surgelés nature, conserves simples&nbsp;: <b>tu contrôles</b> sucre, sel&nbsp;et&nbsp;gras.</p></div>
+    <div class="card hero"><span class="ic">💧</span><div><span class="tag">N°1</span><h3>L'eau, ta boisson</h3><p>La <b>seule boisson recommandée.</b> Adultes&nbsp;: thé, café modéré et infusions sans&nbsp;sucre comptent aussi.</p></div></div>
+    <div class="card"><span class="ic">🥤</span><span class="tag">Pas tous les jours</span><h3>Sodas &amp; jus,<br>on freine</h3><p>Même light&nbsp;: <b>le moins possible,</b> jamais plus d'un verre par jour.</p></div>
+    <div class="card"><span class="ic">🍔</span><span class="tag">À limiter</span><h3>L'ultra-transformé,<br>on évite</h3><p>Souvent gras, sucré, salé, avec des additifs (<b>«&nbsp;E&nbsp;»&nbsp;+&nbsp;3&nbsp;chiffres</b>).</p></div>
+    <div class="card"><span class="ic">🥕</span><span class="tag">Fait maison</span><h3>Des produits bruts</h3><p>Frais, surgelés ou bocaux nature&nbsp;: <b>tu contrôles</b> sucre, sel&nbsp;et&nbsp;gras.</p></div>
     <div class="card"><span class="ic">🍎</span><span class="tag">5 / jour</span><h3>Fruits &amp; légumes</h3><p>Au moins 5 par jour, par ex. <b>3&nbsp;portions de légumes + 2&nbsp;fruits.</b></p></div>
-    <div class="card"><span class="ic">🏃</span><span class="tag">30 min</span><h3>Bouge chaque jour</h3><p>Au moins <b>30&nbsp;minutes</b> d'activité dynamique&nbsp;: marche rapide, vélo,&nbsp;sport.</p></div>
+    <div class="card wide"><span class="ic">🏃</span><div><span class="tag">30 min</span><h3>Bouge chaque jour</h3><p>Au moins <b>30&nbsp;minutes</b> d'activité dynamique&nbsp;: marche rapide, vélo,&nbsp;sport.</p></div></div>
   </div>
 
   <div class="punch"><b>Ton corps, c'est <span>ton meilleur labo.</span></b><small>La qualité commence dans ton assiette.</small></div>
