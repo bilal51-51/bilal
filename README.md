@@ -25,3 +25,7 @@ Produits, prix et effets sont inventés. Aujourd'hui en France, un médicament s
 - `affiches/story.html` : story verticale façon Snap (1080×1920), exportée en `affiches/export/story.png` et `story.mp4` (10 s).
 
 1. Lancement de la marque · 2. IZAM Derma 89 € · 3. IZAM Meta 149 €/mois · 4. IZAM Articula 119 € · 5. IZAM Care (kit 24 €, téléconseil gratuit) · 6. Offre de lancement −15 % · 7. Livraison et garanties · 8. Comment commander · 9. Analyse juridique : marché gris vs IZAMPEPTIDE · 10. La marque : qualité, livraison, suivi (sans prix)
+
+## Étiquetage (`etiquetage/`)
+- `IZAMPEPTIDE-maquette-etiquette.docx` : maquette d'étiquette modifiable sous Word, avec la légende des mentions et les sources.
+- `IZAMPEPTIDE-maquette-etiquette.pdf` : la même maquette en PDF.
