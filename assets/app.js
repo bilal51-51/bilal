@@ -1,15 +1,15 @@
 // Catalogue 100 % fictif : noms, effets et prix inventés pour un projet de formation.
 const PRODUCTS = [
-  { id: "ptl-derm", name: "Peptalis Derma", cat: "Dermatologie", icon: "🧴", price: 89, rx: true,
+  { id: "ptl-derm", name: "IZAM Derma", cat: "Dermatologie", icon: "🧴", price: 89, rx: true,
     short: "Peptide fictif imaginé pour accompagner la cicatrisation cutanée.",
     long: "Produit imaginaire créé pour le projet. Il illustre un futur médicament à base de peptides qui aurait obtenu une autorisation de mise sur le marché (AMM). Aucune donnée clinique réelle." },
-  { id: "ptl-meta", name: "Peptalis Meta", cat: "Métabolisme", icon: "⚖️", price: 149, rx: true,
+  { id: "ptl-meta", name: "IZAM Meta", cat: "Métabolisme", icon: "⚖️", price: 149, rx: true,
     short: "Peptide fictif à visée métabolique, suivi médical obligatoire.",
     long: "Produit imaginaire. Il représente la famille des traitements métaboliques à base de peptides, un marché déjà réel aujourd'hui sur ordonnance. Aucune donnée clinique réelle." },
-  { id: "ptl-joint", name: "Peptalis Articula", cat: "Articulations", icon: "🦴", price: 119, rx: true,
+  { id: "ptl-joint", name: "IZAM Articula", cat: "Articulations", icon: "🦴", price: 119, rx: true,
     short: "Peptide fictif imaginé pour le confort articulaire.",
     long: "Produit imaginaire servant à tester l'offre « récupération » de la boutique. Aucune donnée clinique réelle." },
-  { id: "ptl-kit", name: "Kit de suivi Peptalis", cat: "Accessoires", icon: "📋", price: 24, rx: false,
+  { id: "ptl-kit", name: "Kit de suivi IZAM Care", cat: "Accessoires", icon: "📋", price: 24, rx: false,
     short: "Carnet de suivi et conseils d'utilisation (non médicamenteux).",
     long: "Accessoire fictif sans principe actif : carnet de suivi, guide patient, rappel de rendez-vous avec le médecin." },
   { id: "ptl-cons", name: "Téléconsultation pharmacien", cat: "Services", icon: "💬", price: 0, rx: false,
@@ -19,8 +19,8 @@ const PRODUCTS = [
 
 const fmt = n => n === 0 ? "Gratuit" : n.toLocaleString("fr-FR", { style: "currency", currency: "EUR" });
 
-function getCart() { try { return JSON.parse(localStorage.getItem("peptalis-cart")) || {}; } catch { return {}; } }
-function setCart(c) { try { localStorage.setItem("peptalis-cart", JSON.stringify(c)); } catch {} updateBadge(); }
+function getCart() { try { return JSON.parse(localStorage.getItem("izampeptide-cart")) || {}; } catch { return {}; } }
+function setCart(c) { try { localStorage.setItem("izampeptide-cart", JSON.stringify(c)); } catch {} updateBadge(); }
 function addToCart(id) { const c = getCart(); c[id] = (c[id] || 0) + 1; setCart(c); alert("Ajouté au panier (démo)"); }
 function updateBadge() {
   const n = Object.values(getCart()).reduce((a, b) => a + b, 0);
@@ -63,7 +63,7 @@ function initProduct() {
   const el = document.getElementById("product");
   if (!el) return;
   const p = PRODUCTS.find(x => x.id === new URLSearchParams(location.search).get("id")) || PRODUCTS[0];
-  document.title = `${p.name} · Peptalis`;
+  document.title = `${p.name} · IZAMPEPTIDE`;
   el.innerHTML = `<div class="thumb">${p.icon}</div>
     <div>
       <span class="tag ${p.rx ? "rx" : ""}">${p.rx ? "Médicament sur ordonnance (fictif)" : p.cat}</span>
