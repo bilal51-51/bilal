@@ -22,6 +22,7 @@ Produits, prix et effets sont inventés. Aujourd'hui en France, un médicament s
 
 - `affiches/hygiene.html` : affiche hygiène de vie format téléphone (repères Manger Bouger). Export `hygiene.png` et `hygiene.mp4`.
 - `affiches/pub-reel.html` : pub format Reel téléphone (1080×1920) sans prix : qualité, livraison, suivi. Export `pub-reel.png` et `pub-reel.mp4`.
+- `affiches/canva/` : la pub Reel prête pour Canva (PDF avec texte modifiable + calques PNG : fond, fiole détourée, stickers, bouton, badge).
 - `affiches/etiquette.html` : affiche format téléphone sur l'étiquetage de la fiole IZAMPEPTIDE, exportée en `etiquette.png` et `etiquette.mp4`.
 - `affiches/reel.html` : vidéo Reel verticale (1080×1920, 29 s), exportée en `affiches/export/reel.mp4` (+ `reel-cover.png`).
 - `affiches/story.html` : story verticale façon Snap (1080×1920), exportée en `affiches/export/story.png` et `story.mp4` (10 s).
